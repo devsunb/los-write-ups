@@ -28,7 +28,7 @@ wolfman 문제의 php 소스 코드는 다음과 같다.
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[pw])) exit("No Hack ~_~"); 
   if(preg_match('/ /i', $_GET[pw])) exit("No whitespace ~_~"); 
 ```
-* GET방식으로 pw를 받고, pw에 `prob`, `_`, `.`, `(`, `)` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
+* GET방식으로 pw를 받고, pw에 `prob`, `_`, `.`, `()` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
 
 * 또한, pw에 `공백문자(' ')` 가 들어 있으면 `No whitespace ~_~`가 뜨고 문제 풀이에 실패한다.
 

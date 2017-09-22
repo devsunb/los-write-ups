@@ -28,7 +28,7 @@ goblin 문제의 php 소스 코드는 다음과 같다.
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[no])) exit("No Hack ~_~"); 
   if(preg_match('/\'|\"|\`/i', $_GET[no])) exit("No Quotes ~_~"); 
 ```
-* GET방식으로 no를 받고, no에 `prob`, `_`, `.`, `(`, `)` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
+* GET방식으로 no를 받고, no에 `prob`, `_`, `.`, `()` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
 
 * 또한, no에 `'`, `"`, \` 가 들어 있으면 `No Quotes ~_~`가 뜨고 문제 풀이에 실패한다.
 
@@ -58,7 +58,7 @@ goblin 문제의 php 소스 코드는 다음과 같다.
 
     LIMIT 구문을 이용한 SQL Injection이 잘 이해가 되지 않으면 [**2번 문제 - Cobolt**](https://gitlab.com/dsm-highschool/sql-injection-writeup/blob/master/12_%EC%9D%B4%EC%9E%AC%EC%84%9D/los_no2_cobolt.md)의 **Solution - 3. LIMIT 구문 이용** 부분을 참고하자.
 
-2. CHAR() 함수 및 ASCII 코드 활용
+2. CHAR 함수 및 ASCII 코드 활용
 
     ```
     http://los.eagle-jump.org/goblin_5559aacf2617d21ebb6efe907b7dded8.php?no=-1 or id=char(97, 100, 109, 105, 110)-- -
@@ -73,7 +73,7 @@ goblin 문제의 php 소스 코드는 다음과 같다.
     
     따라서 이는 $result['id']에 'admin'이 들어가도록 하므로 문제가 풀린다.
 
-3. ASCII(), SUBSTR() 함수 및 ASCII 코드 활용
+3. ASCII, SUBSTR 함수 및 ASCII 코드 활용
 
     ```
     http://los.eagle-jump.org/goblin_5559aacf2617d21ebb6efe907b7dded8.php?no=-1 or ascii(substr(id, 1, 1))=97-- -

@@ -45,21 +45,21 @@ gremlin 문제의 php 소스 코드는 다음과 같다.
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[id])) exit("No Hack ~_~"); // do not try to attack another table, database!
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[pw])) exit("No Hack ~_~");
 ```
-* GET방식으로 id와 pw를 받으며, id나 pw에 `prob`, `_`, `.`, `(`, `)` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
+* GET방식으로 id와 pw를 받으며, id나 pw에 `prob`, `_`, `.`, `()` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
 
-## preg_match()
+## preg_match
 ```php
 int preg_match ( string $pattern , string $subject [, array &$matches [, int $flags [, int $offset ]]] )
 ```
-* preg_match() 함수는 문자열에서 정규표현식 매치를 수행한다.
+* preg_match 함수는 문자열에서 정규표현식 매치를 수행한다.
 
 * 반환값은 매치된 횟수이며, 0 또는 1 이다. 이는 처음 매치 후 검색을 중지하기 때문이다.
 
 * 따라서 `preg_match('/prob|_|\.|\(\)/i', $_GET[id])` 는 `$_GET[id]`에서 정규표현식 `'/prob|_|\.|\(\)/i'` 을 매치한다.
 
-* 즉, `if(preg_match('/prob|_|\.|\(\)/i', $_GET[id])) exit("No Hack ~_~");` 이 문장을 통해 `$_GET[id]`에 `prob`, `_`, `.`, `(`, `)` 중 하나라도 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
+* 즉, `if(preg_match('/prob|_|\.|\(\)/i', $_GET[id])) exit("No Hack ~_~");` 이 문장을 통해 `$_GET[id]`에 `prob`, `_`, `.`, `()` 중 하나라도 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
 
-* php의 preg_match() 함수에 대해 잘 모르겠다면 다음 링크를 참고하자.
+* php의 preg_match 함수에 대해 잘 모르겠다면 다음 링크를 참고하자.
     * [PHP: preg_match - Manual](http://php.net/manual/kr/function.preg-match.php)
 
 ## 정규 표현식 (Regular Expression)

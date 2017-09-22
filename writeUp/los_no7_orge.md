@@ -34,7 +34,7 @@ orge 문제의 php 소스 코드는 다음과 같다.
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[pw])) exit("No Hack ~_~"); 
   if(preg_match('/or|and/i', $_GET[pw])) exit("HeHe"); 
 ```
-* GET방식으로 pw를 받고, pw에 `prob`, `_`, `.`, `(`, `)` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
+* GET방식으로 pw를 받고, pw에 `prob`, `_`, `.`, `()` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
 
 * 또한, pw에 대소문자 구분 없이 `or`, `and` 가 들어 있으면 `HeHe`가 뜨고 문제 풀이에 실패한다.
 
@@ -59,7 +59,7 @@ orge 문제의 php 소스 코드는 다음과 같다.
 
 ## Solution
     
-1. SUBSTR() 함수 활용
+1. SUBSTR 함수 활용
 
     Blind SQL Injection 문제이므로 4번 orc 문제에서 이용한 코드를 수정하여 활용한다.
     

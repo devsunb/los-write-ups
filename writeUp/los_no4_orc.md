@@ -30,7 +30,7 @@ orc 문제의 php 소스 코드는 다음과 같다.
 ```php
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[pw])) exit("No Hack ~_~"); 
 ```
-* GET방식으로 pw를 받고, pw에 `prob`, `_`, `.`, `(`, `)` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
+* GET방식으로 pw를 받고, pw에 `prob`, `_`, `.`, `()` 가 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
 
 ```php
   $query = "select id from prob_orc where id='admin' and pw='{$_GET[pw]}'"; 
@@ -48,19 +48,31 @@ orc 문제의 php 소스 코드는 다음과 같다.
 
 * 문제 풀이가 성공하는 조건은 '데이터베이스에서 받은 pw와 GET방식으로 전달받은 pw가 같음'이다. 즉, 실제 데이터베이스에 저장된 pw를 알아내서 전달해야 한다.
 
+## addslashes
+```php
+string addslashes ( string $str )
+```
+* addslashes 함수는 데이터베이스 질의 등에서 처리할 필요가 있는 문자(홑따옴표('), 겹따옴표("), 백슬래시(\), NUL(NULL 바이트)) 앞에 백슬래시를 붙인 문자열을 반환한다.
+
+* 따라서 `addslashes($_GET[pw])` 는 `$_GET[id]`에서 문자열 `홑따옴표('), 겹따옴표("), 백슬래시(\), NUL(NULL 바이트)`를 찾아 백슬래시를 앞에 붙인 문자열을 반환한다.
+
+* php의 addslashes 함수에 대해 잘 모르겠다면 다음 링크를 참고하자.
+
+* [PHP: addslashes - Manual](http://php.net/manual/kr/function.addslashes.php)
+
 -----
 
 ## Blind SQL Injection
 
 4번 orc 문제같은 경우 실제 pw값을 알아내야 한다. 이때 화면에 Hello admin이라는 문자열이 출력되었는지 안 되었는지 여부에 따라 조작한 SQL문의 조건절이 참인지 거짓인지 알아낼 수 있다.
 
-이처럼 SQL Injection이 가능하고 조작한 SQL문의 조건절이 참인지 거짓인지를 구분할 수 있는 경우 원하는 데이터를 한 글자씩 알아낼 수 있는데, 이를 Blind SQL Injection 이라고 한다.
+이처럼 SQL Injection이 가능하고 조작한 SQL문의 조건절이 참인지 거짓인지를 구분할 수 있는 경우 원하는 데이터를 하나씩 알아낼 수 있는데, 이를 Blind SQL Injection 이라고 한다.
 
 -----
 
 ## Solution
 
-1. SUBSTR() 함수 활용
+1. SUBSTR 함수 활용
 
     ```
     http://los.eagle-jump.org/orc_47190a4d33f675a601f8def32df2583a.php?pw=' or id='admin' and length(pw)=8-- -

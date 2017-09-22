@@ -85,7 +85,7 @@ cobolt 문제의 php 소스 코드는 다음과 같다.
     MySQL에는 SELECT절에 LIMIT이라는 구문을 이용하여 반환되는 행을 제한하는 기능이 있다.
     [MySQL Documentation](https://dev.mysql.com/doc/)에서 [SELECT절에 대한 문서](https://dev.mysql.com/doc/refman/5.7/en/select.html)를 찾아보면 다음과 같은 부분을 찾을 수 있다.
     
-    ![limit](images/limit.png)
+    ![limit](../images/limit.png)
 
     즉, SELECT 절의 마지막에 LIMIT 1,1 을 붙이면 테이블에서 조건에 맞는(WHERE 구문이 있으면) 행 중 첫 번째 행부터가 아닌 두 번째 행부터 하나의 행만 가져오게 된다.
 

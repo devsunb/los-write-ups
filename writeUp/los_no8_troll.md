@@ -2,11 +2,11 @@
 
 ## 문제 출제 의도
 
-admin을 필터링하는 ereg() 함수를 우회하여 admin으로 접속할 수 있는지 확인한다.
+admin을 필터링하는 ereg() 함수를 우회하여 id값으로 admin을 전달할 수 있는지 확인한다.
 
 ## 소스 코드 분석
 
-orge 문제의 php 소스 코드는 다음과 같다.
+troll 문제의 php 소스 코드는 다음과 같다.
 ```php
 <?php  
   include "./config.php"; 
@@ -41,11 +41,11 @@ orge 문제의 php 소스 코드는 다음과 같다.
 
 * 문제 풀이가 성공하는 조건은 '데이터베이스에서 받은 id에 "admin"이라는 값이 들어있음'이다.
 
-## ereg()
+## ereg
 ```php
 int ereg ( string $pattern , string $string [, array &$regs ] )
 ```
-* ereg() 함수는 문자열에서 정규표현식 매치를 수행한다.
+* ereg 함수는 문자열에서 **대소문자를 구분하여** 정규표현식 매치를 수행한다.
 
 * 반환값은 매치된 문자열의 길이 또는 FALSE 이다.
 
@@ -53,7 +53,7 @@ int ereg ( string $pattern , string $string [, array &$regs ] )
 
 * 즉, `if(@ereg("admin",$_GET[id])) exit("HeHe");` 이 문장을 통해 `$_GET[id]`에 `admin` 이 들어 있으면 `No Hack ~_~`이 뜨고 문제 풀이에 실패한다.
 
-* php의 ereg() 함수에 대해 잘 모르겠다면 다음 링크를 참고하자.
+* php의 ereg 함수에 대해 잘 모르겠다면 다음 링크를 참고하자.
 
 * [PHP: ereg - Manual](http://php.net/manual/kr/function.ereg.php)
 
@@ -79,7 +79,7 @@ int ereg ( string $pattern , string $string [, array &$regs ] )
 
     정규 표현식으로 `"admin"` 을 전달하는 것을 알 수 있다.
 
-    이로 인해 ereg() 함수는 대소문자를 구분하여 `admin` 이라는 문자열만 매치하게 된다.
+    ereg() 함수는 대소문자를 구분하기 때문에, 이런 경우 `admin` 이라는 문자열만 매치하게 된다.
 
     그러나 기본적으로 MySQL에서는 대소문자를 구분하지 않는다.
 
