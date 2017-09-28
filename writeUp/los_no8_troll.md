@@ -42,6 +42,7 @@ troll 문제의 php 소스 코드는 다음과 같다.
 * 문제 풀이가 성공하는 조건은 '데이터베이스에서 받은 id에 "admin"이라는 값이 들어있음'이다.
 
 ## ereg
+
 ```php
 int ereg ( string $pattern , string $string [, array &$regs ] )
 ```
