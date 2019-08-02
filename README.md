@@ -1,6 +1,6 @@
-# Lord of SQL Injection Write-up
+# Lord of SQL Injection Write-ups
 
-Write-up for [Lord of SQL Injection](http://los.eagle-jump.org/)
+Write-ups for [Lord of SQL Injection](http://los.eagle-jump.org/)
 
 Visual Studio Code를 이용하여 작성
 
